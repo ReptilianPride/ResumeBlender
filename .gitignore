@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Environment
+.env
+.env.*
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Generated files
+outputs/
+uploads/
+generator/resume_data.json
+generator/cover_letter_data.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
