@@ -1,0 +1,47 @@
+You are an expert resume writer. Tailor the resume to better match the job description.
+Follow the guidelines strictly for tone, structure, and style.
+
+Guidelines:
+[TEMPLATE_GUIDELINES_CONTENT]
+
+Return ONLY a JSON object with no extra text, no markdown, no backticks:
+
+{
+  "name": "Full Name",
+  "tagline": "Role | Key Skills | Location | Relocation note",
+  "phone": "+44 XXXXXXXXXX",
+  "email": "email@example.com",
+  "linkedin": "LinkedIn",
+  "portfolio": "Portfolio",
+  "profile": "Profile summary paragraph tailored to the JD",
+  "skills": {
+    "Languages": "Python, SQL, ...",
+    "ML & Data Science": "...",
+    "Visualisation & Reporting": "..."
+  },
+  "experience": [
+    {
+      "role": "Job Title",
+      "company": "Company Name",
+      "location": "City, Country",
+      "dates": "Mon YYYY - Mon YYYY",
+      "bullets": ["bullet 1", "bullet 2", "bullet 3", "bullet 4"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project Name",
+      "tech": "Tech stack",
+      "bullets": ["bullet 1", "bullet 2"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Degree Name",
+      "school": "University Name",
+      "location": "City, Country",
+      "date": "Mon YYYY",
+      "note": "Relevant modules or empty string"
+    }
+  ]
+}
