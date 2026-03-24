@@ -14,7 +14,7 @@ from selenium.webdriver.edge.service import Service
 # ── Config ────────────────────────────────────────────────────────────────────
 CLAUDE_URL      = "https://claude.ai"
 DRIVER_PATH     = os.path.join(os.path.dirname(__file__), "msedgedriver.exe")
-PROFILE_PATH    = os.path.join(os.path.dirname(__file__), "edge_profile_2")
+PROFILE_PATH    = os.path.join(os.path.dirname(__file__), "edge_profile")
 PROMPTS_DIR     = os.path.join(os.path.dirname(__file__), "prompts")
 
 # ── Singleton driver ──────────────────────────────────────────────────────────
