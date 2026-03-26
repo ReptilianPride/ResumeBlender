@@ -165,7 +165,34 @@ def extract_response() -> str:
 
 
 # ── Parse JSON from response ──────────────────────────────────────────────────
+# def parse_json(raw: str) -> dict:
+#     # Direct parse
+#     try:
+#         return json.loads(raw)
+#     except:
+#         pass
+
+#     # Strip markdown fences
+#     cleaned = re.sub(r"```(?:json)?", "", raw).replace("```", "").strip()
+#     try:
+#         return json.loads(cleaned)
+#     except:
+#         pass
+
+#     # Find first { ... } block
+#     match = re.search(r'\{[\s\S]*\}', cleaned)
+#     if match:
+#         try:
+#             return json.loads(match.group())
+#         except:
+#             pass
+
+#     raise ValueError(f"Could not parse JSON from response:\n{raw[:500]}")
+
 def parse_json(raw: str) -> dict:
+    # Strip all leading/trailing whitespace first
+    raw = raw.strip()
+    
     # Direct parse
     try:
         return json.loads(raw)
@@ -184,8 +211,10 @@ def parse_json(raw: str) -> dict:
     if match:
         try:
             return json.loads(match.group())
-        except:
-            pass
+        except Exception as e:
+            print(f"DEBUG: Extracted JSON: {match.group()[:200]}")  # See what it extracted
+            print(f"DEBUG: Error: {e}")
+        pass
 
     raise ValueError(f"Could not parse JSON from response:\n{raw[:500]}")
 
@@ -217,7 +246,6 @@ def run_tailor(resume_text: str, job_description: str) -> dict:
     prompt = load_prompt("ResumeTailor.pmt", {
         "[TEMPLATE_RESUME_CONTENT]":      resume_text,
         "[TEMPLATE_JOB_DESCRIPTION_CONTENT]": job_description,
-      #  "[TEMPLATE_GUIDELINES_CONTENT]":  guidelines,  # Not used in current prompt, but left here for easy future updates
     })
     # start_new_chat()
     send_prompt(prompt)
