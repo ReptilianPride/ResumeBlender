@@ -325,7 +325,7 @@ export default function App() {
             {status === 'Tailoring resume with Claude...' ? '⏳  Tailoring...' : '✦  Generate Tailored Resume'}
           </button>
 
-          <button
+          {/* <button
             onClick={handleCoverLetter}
             disabled={!canCover}
             style={BTN(
@@ -334,7 +334,7 @@ export default function App() {
             )}
           >
             {status === 'Writing cover letter...' ? '⏳  Writing...' : '✉  Generate Cover Letter'}
-          </button>
+          </button> */}
         </div>
       )}
 
