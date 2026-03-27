@@ -243,23 +243,6 @@ export default function App() {
             marginBottom: 16, lineHeight: 1.6,
           }}
         />
-
-        {/* <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
-          <FileUploader
-            label="Resume (.pdf)"
-            accept=".pdf"
-            file={resumeFile}
-            onFile={setResumeFile}
-            icon="📄"
-          />
-          <FileUploader
-            label="Style Guide (.md)"
-            accept=".md"
-            file={guideFile}
-            onFile={setGuideFile}
-            icon="📋"
-          />
-        </div> */}
         
         <div style={{ marginBottom: 20 }}>
           <FileUploader
