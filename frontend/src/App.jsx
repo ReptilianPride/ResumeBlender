@@ -62,9 +62,9 @@ export default function App() {
     setError('')
     setStatus('Opening browser...')
     try {
-      // const res  = await fetch('/open-browser', { method: 'POST' })
-      // const data = await res.json()
-      const data = {"status": "opened"} // TESTING CODE
+      const res  = await fetch('/open-browser', { method: 'POST' })
+      const data = await res.json()
+      // const data = {"status": "opened"} // TESTING CODE
       if (data.error) { setError(data.error); return }
       setBrowserOpen(true)
     } catch (e) {
@@ -78,9 +78,9 @@ export default function App() {
     setError('')
     setStatus('Confirming login...')
     try {
-      // const res  = await fetch('/confirm-login', { method: 'POST' })
-      // const data = await res.json()
-      const data = {"status": "logged_in"} // TESTING CODE
+      const res  = await fetch('/confirm-login', { method: 'POST' })
+      const data = await res.json()
+      // const data = {"status": "logged_in"} // TESTING CODE
       if (data.error) { setError(data.error); return }
       setLoggedIn(true)
     } catch (e) {
@@ -102,12 +102,11 @@ export default function App() {
     const form = new FormData()
     form.append('job_description',  jd)
     form.append('resume_file',      resumeFile)
-    //form.append('guidelines_file',  guideFile)
 
     try {
-      // const res  = await fetch('/analyse', { method: 'POST', body: form })
-      // const data = await res.json()
-      const data={"original_score": score_response} // TESTING CODE
+      const res  = await fetch('/analyse', { method: 'POST', body: form })
+      const data = await res.json()
+      // const data={"original_score": score_response} // TESTING CODE
       if (data.error) { setError(data.error); return }
       setOriginalScore(data.original_score)
     } catch (e) {
@@ -121,15 +120,15 @@ export default function App() {
     setError('')
     setStatus('Tailoring resume with Claude...')
     try {
-      // const res  = await fetch('/tailor', { method: 'POST' })
-      // const data = await res.json()
+      const res  = await fetch('/tailor', { method: 'POST' })
+      const data = await res.json()
       // TESTING CODE
-      const data = {
-        "tailored_score": score_response,
-        "original_score": score_response,
-        "filename":       'potato potato',
-        "download_url":   "/outputs/tailored_resume.docx"
-      }
+      // const data = {
+      //   "tailored_score": score_response,
+      //   "original_score": score_response,
+      //   "filename":       'potato potato',
+      //   "download_url":   "/outputs/tailored_resume.docx"
+      // }
       // TESTING CODE
       if (data.error) { setError(data.error); return }
       setTailoredScore(data.tailored_score)
