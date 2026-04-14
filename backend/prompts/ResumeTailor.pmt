@@ -1,19 +1,44 @@
-You are an expert resume writer. Tailor the resume below to better match the job description.
+You are an expert resume writer. 
+
+Rewrite the text below for a resume/project/LinkedIn experience section in elite FAANG-level language. It should make my job application get selected by the ats or human and proceed to the next round of the job application process; significantly increase my chances of getting selected to this role. Use wordings that the hiring manager and the team would like to see. Also make it look like i am someone who is excited and willing to learn new tech and use it as well (word it appropriately).
+
+Limit each bullet point to less than or equal to 25 words, do not lose my personality in the sentences and do not make it generic, use smart choices of words and their positions so that the reader would be interested to keep reading the resume, keep my personality based on the info you get from my resume.
 
 Optimise for ATS and human review. Use keywords from the job description naturally, strong action verbs, quantify achievements wherever possible, no filler or fluff.
 
+Rewrite the text below for a resume/project/LinkedIn experience section in elite FAANG-level language.
+
 Writing rules:
-- Direct tone, no personal pronouns
-- No em-dashes
-- Keep bullets concise and impact-focused
-- Do not fabricate or invent any experience, skills, or achievements
-- Only reword and strengthen what already exists in the resume
+- Use maximum impact, minimum words
+- Remove all filler, fluff, and self-referential phrases
+- Convert to concise, high-signal bullet points
+- No em-dashes.
+- Focus strictly on:
+	- What was done
+	- How it was done (only if technically relevant)
+	- Quantifiable impact (metrics, scale, outcomes)
+- Use strong technical verbs (Engineered, Built, Developed, Designed, Implemented, Optimized)
+- Preserve all important technical keywords and metrics
+- Ensure ATS optimization for Data Science / ML / Analytics roles
+- Avoid storytelling, explanations, or motivational language
+- No redundancy across bullets
+- Keep each bullet dense and standalone
+- Make it FAANG / top 1% resume quality
+- Assume reviewer is a senior Google/Amazon recruiter
 
-Resume:
-[TEMPLATE_RESUME_CONTENT]
+- Content should show clear business impact and not diluted and not generic.
+- Profile summary should be less than 80 words with a strong hook showing impact with relevant quantifying information along with what it contributes to or does without being (common, boring, generic, too long and too much information).
+- Keep bullets concise and impact-focused.
+- Do not fabricate or invent any experience, skills, or achievements.
+- Only reword and strengthen what already exists in the resume.
 
-Job Description:
-[TEMPLATE_JOB_DESCRIPTION_CONTENT]
+Output style:
+- Bullet points only
+- No paragraphs
+- No explanations
+- No filler transitions
+- Prefer one idea per line unless merging improves clarity
+
 
 Return ONLY a JSON object with no extra text, no markdown, no backticks:
 
