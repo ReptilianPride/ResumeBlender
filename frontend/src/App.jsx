@@ -141,20 +141,20 @@ export default function App() {
     }
   }
 
-  async function handleCoverLetter() {
-    setError('')
-    setStatus('Writing cover letter...')
-    try {
-      const res  = await fetch('/cover-letter', { method: 'POST' })
-      const data = await res.json()
-      if (data.error) { setError(data.error); return }
-      setOutputCover({ name: data.filename, url: data.download_url })
-    } catch (e) {
-      setError('Cover letter failed.')
-    } finally {
-      setStatus('')
-    }
-  }
+  // async function handleCoverLetter() {
+  //   setError('')
+  //   setStatus('Writing cover letter...')
+  //   try {
+  //     const res  = await fetch('/cover-letter', { method: 'POST' })
+  //     const data = await res.json()
+  //     if (data.error) { setError(data.error); return }
+  //     setOutputCover({ name: data.filename, url: data.download_url })
+  //   } catch (e) {
+  //     setError('Cover letter failed.')
+  //   } finally {
+  //     setStatus('')
+  //   }
+  // }
 
   // ── Render ────────────────────────────────────────────────────────────────
   return (
