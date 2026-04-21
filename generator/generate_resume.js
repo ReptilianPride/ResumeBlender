@@ -7,11 +7,11 @@ const path = require('path');
 
 // Read resume data from JSON file
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'resume_data.json'), 'utf8'));
-const outputPath = process.argv[2] || path.join(__dirname, '../outputs/tailored_resume.docx');
+const outputPath = process.argv[2] || path.join(__dirname, 'tailored_resume.docx');
 
 // Color scheme matching your resume
 const DARK = "1A1A2E";     // Dark text
-const ACCENT = "1B4F8A";   // Blue accent
+const ACCENT = "2f4b7c";   // Blue accent
 const GRAY = "555555";     // Gray for secondary text
 
 // ── Helper Functions ──────────────────────────────────────────────────────
@@ -39,7 +39,7 @@ function bullet(text) {
     children: [
       new TextRun({
         text,
-        size: 22,  // 11pt
+        size: 20,  // 10pt
         font: "Arial",
         color: DARK
       })
@@ -74,7 +74,7 @@ function jobTitle(role, company, location, dates) {
       }),
       new TextRun({
         text: "\t" + dates,
-        size: 21,
+        size: 20,
         font: "Arial",
         color: GRAY,
         italics: true
@@ -119,13 +119,13 @@ function skillRow(label, value) {
       new TextRun({
         text: label + ": ",
         bold: true,
-        size: 22,  // 11pt
+        size: 20,  // 10pt
         font: "Arial",
         color: DARK
       }),
       new TextRun({
         text: value,
-        size: 22,
+        size: 20,
         font: "Arial",
         color: DARK
       })
@@ -141,21 +141,21 @@ function eduLine(degree, school, location, date) {
       new TextRun({
         text: degree,
         bold: true,
-        size: 22,  // 11pt
+        size: 20,  // 10pt
         font: "Arial",
         color: DARK
       }),
       new TextRun({
         text: " | " + school + " | " + location,
-        size: 22,
+        size: 20,
         font: "Arial",
         color: GRAY
       }),
       new TextRun({
         text: "\t" + date,
-        size: 22,
+        size: 20,
         font: "Arial",
-        color: GRAY,
+        color: DARK,
         italics: true
       })
     ]
@@ -191,7 +191,7 @@ children.push(new Paragraph({
       bold: true,
       size: 48,  // 24pt
       font: "Arial",
-      color: DARK
+      color: ACCENT
     })
   ]
 }));
@@ -229,43 +229,6 @@ children.push(new Paragraph({
   ]
 }));
 
-// Skills Section
-if (data.skills && Object.keys(data.skills).length > 0) {
-  children.push(sectionHeader("Technical Skills"));
-  for (const [label, value] of Object.entries(data.skills)) {
-    children.push(skillRow(label, value));
-  }
-  children.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun("")] }));
-}
-
-// Experience Section
-if (data.experience && data.experience.length > 0) {
-  children.push(sectionHeader("Experience"));
-  for (const exp of data.experience) {
-    children.push(jobTitle(exp.role, exp.company, exp.location, exp.dates));
-    if (exp.bullets && exp.bullets.length > 0) {
-      for (const b of exp.bullets) {
-        children.push(bullet(b));
-      }
-    }
-  }
-  children.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun("")] }));
-}
-
-// Projects Section
-if (data.projects && data.projects.length > 0) {
-  children.push(sectionHeader("Projects"));
-  for (const proj of data.projects) {
-    children.push(...projectTitle(proj.name, proj.tech));
-    if (proj.bullets && proj.bullets.length > 0) {
-      for (const b of proj.bullets) {
-        children.push(bullet(b));
-      }
-    }
-  }
-  children.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun("")] }));
-}
-
 // Education Section
 if (data.education && data.education.length > 0) {
   children.push(sectionHeader("Education"));
@@ -286,6 +249,43 @@ if (data.education && data.education.length > 0) {
       }));
     }
   }
+}
+
+// Experience Section
+if (data.experience && data.experience.length > 0) {
+  children.push(sectionHeader("Experience"));
+  for (const exp of data.experience) {
+    children.push(jobTitle(exp.role, exp.company, exp.location, exp.dates));
+    if (exp.bullets && exp.bullets.length > 0) {
+      for (const b of exp.bullets) {
+        children.push(bullet(b));
+      }
+    }
+  }
+  // children.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun("")] }));
+}
+
+// Projects Section
+if (data.projects && data.projects.length > 0) {
+  children.push(sectionHeader("Projects"));
+  for (const proj of data.projects) {
+    children.push(...projectTitle(proj.name, proj.tech));
+    if (proj.bullets && proj.bullets.length > 0) {
+      for (const b of proj.bullets) {
+        children.push(bullet(b));
+      }
+    }
+  }
+  // children.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun("")] }));
+}
+
+// Skills Section
+if (data.skills && Object.keys(data.skills).length > 0) {
+  children.push(sectionHeader("Technical Skills"));
+  for (const [label, value] of Object.entries(data.skills)) {
+    children.push(skillRow(label, value));
+  }
+  // children.push(new Paragraph({ spacing: { after: 40 }, children: [new TextRun("")] }));
 }
 
 // ── Create Document ──────────────────────────────────────────────────────
