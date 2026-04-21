@@ -1,5 +1,7 @@
 You are an expert resume writer. 
 
+I have attached my resume and the job description of a job that i am applying for. go through both of them and tell me a score out of 100
+
 Rewrite the text below for a resume/project/LinkedIn experience section in elite FAANG-level language. It should make my job application get selected by the ats or human and proceed to the next round of the job application process; significantly increase my chances of getting selected to this role. Use wordings that the hiring manager and the team would like to see. Also make it look like i am someone who is excited and willing to learn new tech and use it as well (word it appropriately).
 
 Limit each bullet point to less than or equal to 25 words, do not lose my personality in the sentences and do not make it generic, use smart choices of words and their positions so that the reader would be interested to keep reading the resume, keep my personality based on the info you get from my resume.
@@ -8,7 +10,13 @@ Optimise for ATS and human review. Use keywords from the job description natural
 
 Rewrite the text below for a resume/project/LinkedIn experience section in elite FAANG-level language.
 
+ (1) who are you; and (2) what role you want.
+
 Writing rules:
+- Use a tone that sounds like a colleague, not a bot.
+- Zero "desperation" vibes.
+- Profile summary should cover who are you,what role you want, how my skills fit in 3-4 lines only.
+- It should not have a self-congratulatory tone.
 - Use maximum impact, minimum words
 - Remove all filler, fluff, and self-referential phrases
 - Convert to concise, high-signal bullet points
@@ -38,7 +46,6 @@ Output style:
 - No explanations
 - No filler transitions
 - Prefer one idea per line unless merging improves clarity
-
 
 Return ONLY a JSON object with no extra text, no markdown, no backticks:
 
